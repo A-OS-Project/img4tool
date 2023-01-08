@@ -5,6 +5,8 @@
 //  Created by tihmstar on 04.10.19.
 //  Copyright © 2019 tihmstar. All rights reserved.
 //
+//  Modified by Pyogenics under A-OS-Project on 8th January 2023
+//
 
 #ifndef img4tool_hpp
 #define img4tool_hpp
@@ -15,7 +17,7 @@
 #include <vector>
 
 
-#if @HEADER_HAVE_PLIST@ //HAVE_PLIST
+#if HAVE_PLIST
 #include <plist/plist.h>
 #endif //HAVE_PLIST
 
@@ -44,7 +46,7 @@ namespace tihmstar {
 
         ASN1DERElement genPrivTagForNumberWithPayload(size_t privnum, const ASN1DERElement &payload);
 
-#if @HEADER_HAVE_CRYPTO@ //HAVE_CRYPTO
+#if HAVE_CRYPTO
         ASN1DERElement decryptPayload(const ASN1DERElement &payload, const char *decryptIv, const char *decryptKey);
         std::string getIM4PSHA1(const ASN1DERElement &im4p);
         std::string getIM4PSHA384(const ASN1DERElement &im4p);
@@ -64,11 +66,11 @@ namespace tihmstar {
 
         ASN1DERElement renameIM4P(const ASN1DERElement &im4p, const char *type);
 
-#if @HEADER_HAVE_OPENSSL@ //HAVE_OPENSSL
+#if HAVE_OPENSSL
         bool isIM4MSignatureValid(const ASN1DERElement &im4m);
 #endif //HAVE_OPENSSL
 
-#if @HEADER_HAVE_PLIST@ //HAVE_PLIST
+#if HAVE_PLIST
         bool doesIM4MBoardMatchBuildIdentity(const ASN1DERElement &im4m, plist_t buildIdentity) noexcept;
         bool im4mMatchesBuildIdentity(const ASN1DERElement &im4m, plist_t buildIdentity, std::vector<const char*> ignoreWhitelist = {}) noexcept;
         const plist_t getBuildIdentityForIm4m(const ASN1DERElement &im4m, plist_t buildmanifest, std::vector<const char*> ignoreWhitelist = {});
