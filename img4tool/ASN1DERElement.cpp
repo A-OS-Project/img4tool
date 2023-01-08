@@ -5,6 +5,8 @@
 //  Created by tihmstar on 04.10.19.
 //  Copyright © 2019 tihmstar. All rights reserved.
 //
+//  Modified by Pyogenics under A-OS-Project on 8th January 2023
+//
 
 #include <algorithm>
 #include "img4tool/ASN1DERElement.hpp"
