@@ -6,13 +6,13 @@
 //  Copyright © 2019 tihmstar. All rights reserved.
 //
 
-#include "img4tool.hpp"
+#include "img4tool/img4tool.hpp"
 #include <stdio.h>
 #include <string.h>
 #include <array>
 #include <algorithm>
 #include <arpa/inet.h>
-#include "ASN1DERElement.hpp"
+#include "img4tool/ASN1DERElement.hpp"
 #include <libgeneral/macros.h>
 extern "C"{
 #include "lzssdec.h"
