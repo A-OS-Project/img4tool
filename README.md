@@ -3,27 +3,24 @@ _A tool for manipulating IMG4, IM4M and IM4P files_
 
 This is a fork of [**img4tool by tihmstar**](https://github.com/tihmstar/img4tool) (which is licensed under LGPL-3.0), initially modified by the A-OS-Project (under the MIT license) on 8th January 2023.
 
-# BUILD
-Install dependencies:
-* Buildsystem
-  * autoconf
-  * automake
-  * libtool
-  * pkg-config
-* External
-  * openssl
-  * libplist-2.0
-* tihmstar's tools
-  * [libgeneral](https://github.com/tihmstar/libgeneral)
+## Building from source
+### Dependencies:
+- cmake
+- make
+- openssl
+- libplist-2.0
+- [lzfse](https://github.com/lzfse/lzfse)
+- [libgeneral](https://github.com/tihmstar/libgeneral)
 
-To compile run:
-
+### Compile:
 ```bash
-./autogen.sh
-make
+git clone https://github.com/A-OS-Project/img4tool
+cd img4tool/
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
 sudo make install
 ```
-
 
 # Features
 ## Print
