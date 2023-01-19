@@ -7,7 +7,7 @@
 #THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 # File created on 8th January 2023 by Pyogenics under A-OS-Project
-# Last modified on 14th January 2023
+# Last modified on 19th January 2023
 #
 
 cmake_minimum_required(VERSION 2.8.12)
@@ -16,24 +16,17 @@ project(img4tool LANGUAGES CXX C)
 # Find required libraries
 find_package(OpenSSL 0.9.8 REQUIRED)
 # These aren't cmake modules (yet)
-set(SEARCH_PATHS
-	/usr/lib
-	/usr/lib64
-	/usr/local/lib
-	/usr/local/lib64
-	${ADDITIONAL_SEARCH_PATHS}	# Specify this to search less standard paths, for non canonical systems
-)
 # XXX: I'm unsure about this .so stuff, shouldn't this be OS independent?
-find_library(LIBGENERAL libgeneral.so
-	PATHS ${SEARCH_PATHS}
+find_library(LIBGENERAL libgeneral libgeneral.so
+	PATHS ${ADDITIONAL_SEARCH_PATHS}
 	REQUIRED
 )
-find_library(LIBPLIST libplist-2.0.so
-	PATHS ${SEARCH_PATHS}
+find_library(LIBPLIST libplist libplist-2.0.so
+	PATHS ${ADDITIONAL_SEARCH_PATHS}
 	REQUIRED
 )
-find_library(LIBLZFSE liblzfse.a	# Static library?
-	PATHS ${SEARCH_PATHS}
+find_library(LIBLZFSE liblzfse liblzfse.a	# Static library?
+	PATHS ${ADDITIONAL_SEARCH_PATHS}
 	REQUIRED
 )
 
